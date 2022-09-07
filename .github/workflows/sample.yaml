@@ -1,0 +1,12 @@
+name: test a new sample
+on: [push]
+jobs:
+  runs-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string 
+        run: echo "hey"
+      - name: echo multiple string
+        run: |
+          npm -v
+          node -v     
