@@ -9,4 +9,9 @@ jobs:
       - name: echo multiple string
         run: |
           npm -v
-          node -v     
+          node -v  
+  runs-windows-command:
+    runs-on: Windows-latest
+    steps:
+      - name: run ps command
+        run: Write-Host "ps command"            
