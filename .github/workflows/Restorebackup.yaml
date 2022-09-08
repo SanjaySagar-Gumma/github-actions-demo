@@ -23,6 +23,8 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS12}}
         enable-AzPSSession: true
-  
-    - shell: pwsh
-      run: .\storage.ps1
+        
+    - name: ps script
+      run: pwsh -command ".\$GITHUB_WORKSPACE\storage.ps1"
+    #- shell: pwsh
+    #  run: .\storage.ps1
