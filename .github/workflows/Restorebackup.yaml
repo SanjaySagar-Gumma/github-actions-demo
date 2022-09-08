@@ -25,4 +25,4 @@ jobs:
         enable-AzPSSession: true
   
     - shell: pwsh
-      run: .\$GITHUB_WORKSPACE\storage.ps1
+      run: .\storage.ps1
