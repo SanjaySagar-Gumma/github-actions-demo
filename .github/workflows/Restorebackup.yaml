@@ -13,26 +13,15 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS11 }}
-        #enable-AzPSSession: true
-        #run: echo "login azure"
-        #client-id: "e101707a-7171-486c-9bdc-e7f95d2bbc9f"
-        #tenant-id: "5b973f99-77df-4beb-b27d-aa0c70b8482c"
-        #subscription-id: "05f10e8d-cec2-4d36-9144-7cbf3b611336"
-        enable-AzPSSession: true
         
+        enable-AzPSSession: true       
 
-# # craete storage and container
-#   runs-cli-command:
-#     runs-on: self-hosted
-#     steps:
-#     - name: install azCLI 
-#     - uses:  elstudio/action-install-azure-cli@v1
-#       run: echo "install cli"
-# # run az cmnd
-#   runs-azure-command:
-#     steps:
-#       shell: pwsh
-#       run: |
-#         az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
+
+# run az cmnd
+  runs-azure-command:
+    steps:
+      shell: pwsh
+      run: |
+        az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
           
 
