@@ -15,11 +15,11 @@ on:
 jobs:
 
   build:
-    runs-on: vm1windows
+    runs-on: ubuntu-latest
     steps:
     
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+        creds: ${{secrets.AZURE_CREDENTIALS11}}
         enable-AzPSSession: true
