@@ -26,5 +26,4 @@ jobs:
   
     - shell: pwsh
       run: |
-        #.\storage.ps1
-        echo pwd
+        .\$GITHUB_WORKSPACE\Hello-World.ps1
