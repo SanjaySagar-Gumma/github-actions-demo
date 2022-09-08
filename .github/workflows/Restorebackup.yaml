@@ -10,12 +10,15 @@ build:
   - uses: azure/login@v1
   with:
     creds: ${{ secrets.AZURE_CREDENTIALS }}
+    run: echo "login azure"
+
 # craete storage and container
   runs-cli-command:
     runs-on: self-hosted
     steps:
     - name: install azCLI 
     - uses:  elstudio/action-install-azure-cli@v1
+      run: echo "install cli"
 # run az cmnd
   runs-azure-command:
     steps:
