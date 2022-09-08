@@ -1,27 +1,29 @@
-name: Backup Sql for Github Actions
+# This is a basic workflow to help you get started with Actions
+name: azure login
 
-on: [push]
-permissions:
-  id-token: write
-  contents: read
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: azure/login@v1
+    
+    - name: Login via Az module
+      uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS11 }}
-        
-        enable-AzPSSession: true       
-
-
-# run az cmnd
-  runs-azure-command:
-    steps:
-      shell: pwsh
+        creds: ${{secrets.AZURE_CREDENTIALS12}}
+        enable-AzPSSession: true
+  
+    - shell: pwsh
       run: |
-        az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
-          
-
+        .\storage.ps1
