@@ -12,12 +12,12 @@ jobs:
     - uses: actions/checkout@v1
     - uses: azure/login@v1
       with:
-        #creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
         #enable-AzPSSession: true
         #run: echo "login azure"
-        client-id: "e101707a-7171-486c-9bdc-e7f95d2bbc9f"
-        tenant-id: "5b973f99-77df-4beb-b27d-aa0c70b8482c"
-        subscription-id: "05f10e8d-cec2-4d36-9144-7cbf3b611336"
+        #client-id: "e101707a-7171-486c-9bdc-e7f95d2bbc9f"
+        #tenant-id: "5b973f99-77df-4beb-b27d-aa0c70b8482c"
+        #subscription-id: "05f10e8d-cec2-4d36-9144-7cbf3b611336"
         enable-AzPSSession: true
         
 
