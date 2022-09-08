@@ -26,4 +26,4 @@ jobs:
   
     - shell: pwsh
       run: |
-        az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
+        .\storage.ps1
