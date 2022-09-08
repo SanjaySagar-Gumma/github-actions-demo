@@ -1,0 +1,26 @@
+name: Backup Sql for Github Actions
+
+on: [push]
+jobs:
+
+build:
+  run-on: self-hosted
+  steps:
+  - uses: actions/checkout@v1
+  - uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+# craete storage and container
+  runs-cli-command:
+    runs-on: self-hosted
+    steps:
+    - name: install azCLI 
+    - uses:  elstudio/action-install-azure-cli@v1
+# run az cmnd
+  runs-azure-command:
+    steps:
+      shell: pwsh
+      run: |
+        az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
+        
+
