@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS11 }}
         #enable-AzPSSession: true
         #run: echo "login azure"
         #client-id: "e101707a-7171-486c-9bdc-e7f95d2bbc9f"
