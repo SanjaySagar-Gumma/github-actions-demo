@@ -4,13 +4,13 @@ on: [push]
 jobs:
 
   build:
-    run-on: self-hosted
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
     - uses: azure/login@v1
-    with:
-      creds: ${{ secrets.AZURE_CREDENTIALS }}
-      run: echo "login azure"
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        run: echo "login azure"
 
   # craete storage and container
     runs-cli-command:
