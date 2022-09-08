@@ -25,5 +25,4 @@ jobs:
         enable-AzPSSession: true
   
     - shell: pwsh
-      run: |
-        .\$GITHUB_WORKSPACE\Hello-World.ps1
+      run: .\$GITHUB_WORKSPACE\storage.ps1
