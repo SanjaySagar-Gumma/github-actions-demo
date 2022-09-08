@@ -12,18 +12,18 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         run: echo "login azure"
 
-# craete storage and container
-  runs-cli-command:
-    runs-on: self-hosted
-    steps:
-    - name: install azCLI 
-    - uses:  elstudio/action-install-azure-cli@v1
-      run: echo "install cli"
-# run az cmnd
-  runs-azure-command:
-    steps:
-      shell: pwsh
-      run: |
-        az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
+# # craete storage and container
+#   runs-cli-command:
+#     runs-on: self-hosted
+#     steps:
+#     - name: install azCLI 
+#     - uses:  elstudio/action-install-azure-cli@v1
+#       run: echo "install cli"
+# # run az cmnd
+#   runs-azure-command:
+#     steps:
+#       shell: pwsh
+#       run: |
+#         az storage account create --name mygitstorage2 --resource-group Windapp --location "South India" --sku Standard_LRS
           
 
