@@ -26,4 +26,5 @@ jobs:
   
     - shell: pwsh
       run: |
-        .\storage.ps1
+        #.\storage.ps1
+        echo pwd
