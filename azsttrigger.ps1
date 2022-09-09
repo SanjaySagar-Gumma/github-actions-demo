@@ -14,7 +14,8 @@ $bacpac="backup.bacpac"
 az storage account create --name $storage --resource-group $resourceGroup --location "$location" --sku Standard_LRS
 
 echo "Creating $container on $storage..."
-$key=$(az storage account keys list --account-name $storage --resource-group $resourceGroup -o json --query [0].value | tr -d '"')
+#$key=$(az storage account keys list --account-name $storage --resource-group $resourceGroup -o json --query [0].value | tr -d '"')
+$key = az storage account keys list -n $storageaccount --resource-group $rg --query [0].value -o tsv
 az storage container create --name $container --account-key $key --account-name $storage
 
 echo "Creating $server in $location..."
