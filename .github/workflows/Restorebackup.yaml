@@ -24,7 +24,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS12}}
         enable-AzPSSession: true
         
-    - name: ps script
+    - name: ps1 script
       #run: ./azsttrigger.ps1
       shell: pwsh
       run: |
