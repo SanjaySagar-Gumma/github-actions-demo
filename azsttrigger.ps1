@@ -7,7 +7,7 @@ $storage="gitstorage81"
 $container="gitcontainer1"
 $server="gitserverdemo1"
 $database="gitdbdemo1"
-$databasenew1="newgitdbdemo1"
+$databasenew12="newgitdbdemo12"
 $bacpac="backup.bacpac"
 
 
@@ -29,7 +29,7 @@ echo "Backing up $database..."
 az sql db export --admin-password $password --admin-user $login --storage-key $key --storage-key-type StorageAccessKey --storage-uri "https://$storage.blob.core.windows.net/$container/$bacpac" --name $database --resource-group $resourceGroup --server $server
 
 echo "creating new database on same server"
-#az sql db create --name $databasenew --resource-group $resourceGroup --server $server --edition GeneralPurpose --sample-name AdventureWorksLT
+az sql db create --name $databasenew12 --resource-group $resourceGroup --server $server --edition GeneralPurpose --sample-name AdventureWorksLT
 
 #echo "import the back up into ne database"
 #az sql db import --admin-password $password --admin-user $login --storage-key $key --storage-key-type StorageAccessKey --storage-uri https://$storage.blob.core.windows.net/$container/$bacpac --name $databasenew --resource-group $resourceGroup --server $server
@@ -37,4 +37,4 @@ echo "creating new database on same server"
 echo "import the back up"
 $SecurePass=ConvertTo-SecureString $password -AsPlainText -Force
 $saskey = $key.ToString()
-New-AzSqlDatabaseImport -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $databasenew1 -StorageKeyType StorageAccessKey -StorageKey $saskey -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
+New-AzSqlDatabaseImport -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $databasenew12 -StorageKeyType StorageAccessKey -StorageKey $saskey -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
