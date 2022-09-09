@@ -27,5 +27,4 @@ jobs:
     - name: ps1 script
       #run: ./azsttrigger.ps1
       shell: pwsh
-      run: |
-        ./.github/workflows/azsttrigger.ps1
+      run: ${{ github.action_path }}/azsttrigger.ps1
