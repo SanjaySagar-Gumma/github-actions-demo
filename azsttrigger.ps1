@@ -15,7 +15,7 @@ az storage account create --name $storage --resource-group $resourceGroup --loca
 
 echo "Creating $container on $storage..."
 #$key=$(az storage account keys list --account-name $storage --resource-group $resourceGroup -o json --query [0].value | tr -d '"')
-$key = az storage account keys list -n $storageaccount --resource-group $rg --query [0].value -o tsv
+$key = az storage account keys list -n $storage --resource-group $resourceGroup --query [0].value -o tsv
 az storage container create --name $container --account-key $key --account-name $storage
 
 echo "Creating $server in $location..."
@@ -37,4 +37,4 @@ az sql db create --name $databasenew --resource-group $resourceGroup --server $s
 echo "import the back up"
 $SecurePass=ConvertTo-SecureString $password -AsPlainText -Force
 $saskey = $key.ToString()
-New-AzSqlDatabaseImport -ResourceGroupName $resourcegroup -ServerName $server -DatabaseName $databasenew -StorageKeyType StorageAccessKey -StorageKey $saskey -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
+New-AzSqlDatabaseImport -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $databasenew -StorageKeyType StorageAccessKey -StorageKey $saskey -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
