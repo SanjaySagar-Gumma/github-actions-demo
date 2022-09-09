@@ -25,7 +25,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS12}}
         enable-AzPSSession: true
         
-    - name: ps1 script
+    - name: Powershell script
       run: ./azsttrigger.ps1
       shell: pwsh
       #run: ${{ github.action_path }}/azsttrigger.ps1
