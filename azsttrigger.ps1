@@ -7,7 +7,7 @@ $storage="gitstorage81"
 $container="gitcontainer1"
 $server="gitserverdemo1"
 $database="gitdbdemo1"
-$databasenew="newgitdbdemo1"
+$databasenew1="newgitdbdemo1"
 $bacpac="backup.bacpac"
 
 
