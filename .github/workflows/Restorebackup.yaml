@@ -31,7 +31,7 @@ jobs:
         Import-module -name Az.Sql   
         
     - name: Powershell script
-      run:  set-AzContext -Subscription "05f10e8d-cec2-4d36-9144-7cbf3b611336"
-      #run: ./azsttrigger.ps1
+      #run:  set-AzContext -Subscription "05f10e8d-cec2-4d36-9144-7cbf3b611336"
+      run: ./azsttrigger.ps1
       shell: pwsh
       #run: ${{ github.action_path }}/azsttrigger.ps1
