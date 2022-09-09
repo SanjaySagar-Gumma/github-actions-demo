@@ -25,6 +25,6 @@ jobs:
         enable-AzPSSession: true
         
     - name: ps script
-      run: pwsh -command ".\azsttrigger.ps1 -Arg1 'arguments n°1'"
+      run: pwsh -command ".\azsttrigger.ps1"
     #- shell: pwsh
     #  run: .\storage.ps1
