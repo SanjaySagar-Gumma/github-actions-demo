@@ -30,5 +30,8 @@ az sql db export --admin-password $password --admin-user $login --storage-key $k
 echo "creating new database on same server"
 az sql db create --name $databasenew --resource-group $resourceGroup --server $server --edition GeneralPurpose --sample-name AdventureWorksLT
 
-echo "import the back up into ne database"
-az sql db import --admin-password $password --admin-user $login --storage-key $key --storage-key-type StorageAccessKey --storage-uri https://$storage.blob.core.windows.net/$container/$bacpac --name $databasenew --resource-group $resourceGroup --server $server
+#echo "import the back up into ne database"
+#az sql db import --admin-password $password --admin-user $login --storage-key $key --storage-key-type StorageAccessKey --storage-uri https://$storage.blob.core.windows.net/$container/$bacpac --name $databasenew --resource-group $resourceGroup --server $server
+
+echo "import the back up"
+New-AzSqlDatabaseImport -ResourceGroupName $resourcegroup -ServerName $server -DatabaseName $databasenew -StorageKeyType "StorageAccessKey" -StorageKey $key -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $password -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
