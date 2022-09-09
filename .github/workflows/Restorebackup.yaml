@@ -25,6 +25,7 @@ jobs:
         enable-AzPSSession: true
         
     - name: ps script
-      run: ./azsttrigger.ps1
-      shell: pwsh
       #run: ./azsttrigger.ps1
+      shell: pwsh
+      run: |
+        ./azsttrigger.ps1
