@@ -3,11 +3,11 @@ $location="East US"
 $resourceGroup="Windapp"
 $login="azureuser"
 $password="AlfaKumar@1234"
-$storage="gitstorage8"
-$container="gitcontainer"
-$server="gitserverdemo"
-$database="gitdbdemo"
-$databasenew="newgitdbdemo"
+$storage="gitstorage81"
+$container="gitcontainer1"
+$server="gitserverdemo1"
+$database="gitdbdemo1"
+$databasenew="newgitdbdemo1"
 $bacpac="backup.bacpac"
 
 
@@ -37,4 +37,4 @@ az sql db create --name $databasenew --resource-group $resourceGroup --server $s
 echo "import the back up"
 $SecurePass=ConvertTo-SecureString $password -AsPlainText -Force
 $saskey = $key.ToString()
-New-AzSqlDatabaseImport -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $databasenew -StorageKeyType StorageAccessKey -StorageKey $saskey -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
+New-AzSqlDatabaseImport -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $databasenew1 -StorageKeyType StorageAccessKey -StorageKey $saskey -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
