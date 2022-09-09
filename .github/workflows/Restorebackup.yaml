@@ -27,5 +27,4 @@ jobs:
     #- name: ps script
     #  run: pwsh -command ".\azsttrigger.ps1"
     - shell: pwsh
-      run: |
-        az group exists --Windapp
+      run: ./azsttrigger.ps1
