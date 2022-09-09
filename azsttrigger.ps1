@@ -34,4 +34,5 @@ az sql db create --name $databasenew --resource-group $resourceGroup --server $s
 #az sql db import --admin-password $password --admin-user $login --storage-key $key --storage-key-type StorageAccessKey --storage-uri https://$storage.blob.core.windows.net/$container/$bacpac --name $databasenew --resource-group $resourceGroup --server $server
 
 echo "import the back up"
-New-AzSqlDatabaseImport -ResourceGroupName $resourcegroup -ServerName $server -DatabaseName $databasenew -StorageKeyType "StorageAccessKey" -StorageKey $key -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $password -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
+$SecurePass=ConvertTo-SecureString $password -AsPlainText -Force
+New-AzSqlDatabaseImport -ResourceGroupName $resourcegroup -ServerName $server -DatabaseName $databasenew -StorageKeyType "StorageAccessKey" -StorageKey $key -StorageUri https://$storage.blob.core.windows.net/$container/$bacpac -AdministratorLogin $login -AdministratorLoginPassword $SecurePass -Edition Standard -ServiceObjectiveName S3 -DatabaseMaxSizeBytes 1073741824
