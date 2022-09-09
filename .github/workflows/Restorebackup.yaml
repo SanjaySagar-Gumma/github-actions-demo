@@ -24,7 +24,8 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS12}}
         enable-AzPSSession: true
-    - name : install az pwsh cli   
+    - name : install az pwsh cli
+      shell: pwsh
       run: |
         Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
         Import-module -name Az.Sql   
