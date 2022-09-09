@@ -24,8 +24,13 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS12}}
         enable-AzPSSession: true
+    - name : install az pwsh cli   
+      run: |
+        Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+        Import-module -name Az.Sql   
         
     - name: Powershell script
-      run: ./azsttrigger.ps1
+      run:  set-AzContext -Subscription "05f10e8d-cec2-4d36-9144-7cbf3b611336"
+      #run: ./azsttrigger.ps1
       shell: pwsh
       #run: ${{ github.action_path }}/azsttrigger.ps1
