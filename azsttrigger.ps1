@@ -7,7 +7,9 @@ $storage="gitstorage8"
 $container="gitcontainer"
 $server="gitserverdemo"
 $database="gitdbdemo"
+$databasenew="newgitdbdemo"
 $bacpac="backup.bacpac"
+
 
 az storage account create --name $storage --resource-group $resourceGroup --location "$location" --sku Standard_LRS
 
@@ -24,3 +26,9 @@ az sql db create --name $database --resource-group $resourceGroup --server $serv
 
 echo "Backing up $database..."
 az sql db export --admin-password $password --admin-user $login --storage-key $key --storage-key-type StorageAccessKey --storage-uri "https://$storage.blob.core.windows.net/$container/$bacpac" --name $database --resource-group $resourceGroup --server $server
+
+echo "creating new database on same server"
+az sql db create --name $databasenew --resource-group $resourceGroup --server $server --edition GeneralPurpose --sample-name AdventureWorksLT
+
+echo "import the back up into ne database"
+az sql db import --admin-password AlfaKumar@1234 --admin-user azureuser --storage-key $key --storage-key-type StorageAccessKey --storage-uri https://$storage.blob.core.windows.net/$container/$bacpac --name $databasenew --resource-group $resourceGroup --server $server
