@@ -5,7 +5,7 @@ on:
   workflow_dispatch:   
 jobs:
   call-workflow:    
-     uses: sigmarpanda/github-actions-demo/.github/workflows/DockerImagebuild-push.yml@main
+     uses: sigmarpanda/github-actions-demo/.github/workflows/DockerImagebuild-push.yml@master
      secrets:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}  
         DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}  
