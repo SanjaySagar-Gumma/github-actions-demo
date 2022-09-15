@@ -6,6 +6,10 @@ on:
         required: true
       DOCKERHUB_TOKEN:
         required: true
+env:
+  JFROG_URL: https://newapp.jfrog.io/artifactory/
+  JFROG_ARTIFACT_DIR: new-app-docker-remote-cache
+  
 jobs:
   
   build:
@@ -22,6 +26,19 @@ jobs:
           
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        
+      - uses: jfrog/setup-jfrog-cli@v1.2.0
+
+        name: Setup JFrog CLI
+
+      - name: Setup JFrog Credentials
+
+        run: jfrog config add --artifactory-url=${{ env.JFROG_URL }} --user='${{ secrets.JFROG_USER }}' --password='${{ secrets.JFROG_PASSWORD }}'
+
+      - name: Upload JFrog Artifacts
+
+        shell: bash
+
+        run: jfrog rt u "sigmarpanda/github-actions-demo/*.jar" "$JFROG_ARTIFACT_DIR/$GITHUB_RUN_ID/"
       
-    #- name : push the image
-    #  run: 
+    
