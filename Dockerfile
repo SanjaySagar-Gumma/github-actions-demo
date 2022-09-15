@@ -1,13 +1,6 @@
-#Specify a base image
-FROM node:alpine
-
-#Working Directory for all the operations
-WORKDIR /usr/app
-
-#Install some dependencies
-COPY ./package.json ./
-RUN npm install
-COPY ./ ./
-
-#Default Command
-CMD ["npm","start"]
+FROM python:3.6
+COPY . /app
+WORKDIR /app
+RUN pip3 install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["application.py"]
