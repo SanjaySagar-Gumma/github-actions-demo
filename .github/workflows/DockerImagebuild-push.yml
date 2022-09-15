@@ -42,6 +42,6 @@ jobs:
 
         shell: bash
 
-        run: jfrog rt u "sigmarpanda/github-actions-demo/*.jar" "$JFROG_ARTIFACT_DIR/$GITHUB_RUN_ID/"
+        run: jfrog rt u "sigmarpanda/github-actions-demo/my-image-name:1663254037" "$JFROG_ARTIFACT_DIR/$GITHUB_RUN_ID/"
       
     
