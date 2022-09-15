@@ -1,18 +1,12 @@
 name: Docker Image CI - Build
 
-#on:
-#  workflow_call:
-#    inputs:
-#      name:
-#        required: true
-#        type: string
-
-
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_call:
+    secrets:
+      DOCKERHUB_USERNAME:
+        required: true
+      DOCKERHUB_TOKEN:
+        required: true  
 
 jobs:
 
@@ -31,5 +25,5 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
-    - name : push the image
-      run: 
+    #- name : push the image
+    #  run: 
