@@ -1,0 +1,11 @@
+name: Reusable Template
+
+on:
+  push:
+  workflow_dispatch:   
+jobs:
+  call-workflow:    
+     uses: sigmarpanda/github-actions-demo/.github/workflows/DockerImagebuild-push.yml@main
+     secrets:
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}  
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_OKEN }}  
