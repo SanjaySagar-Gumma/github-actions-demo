@@ -25,7 +25,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        run: |
+          docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+          pwd
+          ls
         
       - uses: jfrog/setup-jfrog-cli@v1.2.0
 
