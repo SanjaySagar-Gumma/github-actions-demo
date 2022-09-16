@@ -42,8 +42,13 @@ jobs:
 
       - name: Upload JFrog Artifacts
 
-        shell: bash
+        #shell: bash
 
-        run: jfrog rt u "/var/lib/docker/my-image-name" "$JFROG_ARTIFACT_DIR/$GITHUB_RUN_ID/"
+        #run: jfrog rt u "/var/lib/docker/my-image-name" "$JFROG_ARTIFACT_DIR/$GITHUB_RUN_ID/"
+        run: |
+          docker pull my-image-name
+          docker tag my-image-name new-app-docker-remote/jfrog.io/my-image-name
+          docker push new-app-docker-remote/jfrog.io/my-image-name
+     
       
     
