@@ -60,6 +60,7 @@ jobs:
           docker images
           $var1 = docker images | awk '{print $3}'	
           echo $var1
+          echo "hello"
           docker tag $var1[0]  newapp.jfrog.io/docker-local/$var1[0] 
           docker push newapp.jfrog.io/docker-local/$var1[0] 
       
