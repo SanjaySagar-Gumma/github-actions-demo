@@ -63,6 +63,7 @@ jobs:
           docker images
          # $imgid = "docker images | grep -i "my-image-name" | awk '{print $3}'"
           echo "hello"
+          echo $imgid
           docker tag $imgid newapp.jfrog.io/docker-local/$imgid
           docker push newapp.jfrog.io/docker-local/$imgid
       
