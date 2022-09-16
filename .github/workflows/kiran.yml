@@ -48,14 +48,14 @@ jobs:
         run: |
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-      - name: set env
-        env: |
-          imgid: "docker images | grep -i "my-image-name" | awk '{print $3}'" 
-      - name: docker
-        run: |        
-          docker images        
-          echo "hello"
-          echo ${{ env.imgid }}
-          docker tag ${{ env.imgid }} newapp.jfrog.io/docker-local/${imgid}
-          docker push newapp.jfrog.io/docker-local/${imgid}
+#       - name: set env
+#         env: |
+#           imgid: "docker images | grep -i "my-image-name" | awk '{print $3}'" 
+#       - name: docker
+#         run: |        
+#           docker images        
+#           echo "hello"
+#           echo ${{ env.imgid }}
+#           docker tag ${{ env.imgid }} newapp.jfrog.io/docker-local/${imgid}
+#           docker push newapp.jfrog.io/docker-local/${imgid}
       
