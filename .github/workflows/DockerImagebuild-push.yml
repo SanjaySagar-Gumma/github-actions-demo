@@ -45,11 +45,13 @@ jobs:
         id: docker_build
         run: |
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      - name: env variable
-        #shell: bash
+#       - name: env variable
+#         #shell: bash
+#         env:
+#           imgid: ${{docker images | grep -i "my-image-name" | awk '{print $3}'}}
+      - name: docker push
         env:
-          imgid: ${{docker images | grep -i "my-image-name" | awk '{print $3}'}}
-      - name: docker push   
+          imgid: docker images | grep -i "my-image-name" | awk '{print $3}'
         run: |        
           docker images        
           echo "hello"
