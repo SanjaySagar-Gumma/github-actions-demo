@@ -30,7 +30,7 @@ jobs:
           pwd
           ls
           docker images
-          cat /var/lib/docker
+          #cat /var/lib/docker
         
       - uses: jfrog/setup-jfrog-cli@v1.2.0
 
