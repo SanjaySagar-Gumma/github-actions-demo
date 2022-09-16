@@ -13,7 +13,7 @@ on:
 env:
   JFROG_URL: https://newapp.jfrog.io/artifactory/
   JFROG_ARTIFACT_DIR: new-app-docker-remote-cache
-  imgid: docker images | grep -i "my-image-name" | awk '{print $3}'
+ 
 
 jobs:
   
@@ -58,13 +58,13 @@ jobs:
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       - name: push version1
         shell: bash
-        run: |
-         # sudo apt-get install gawk
-          docker images
-         # $imgid = "docker images | grep -i "my-image-name" | awk '{print $3}'"
+        env:
+          imgid: ${{docker images | grep -i "my-image-name" | awk '{print $3}'}}
+        run: |        
+          docker images        
           echo "hello"
-          echo $imgid
-          docker tag $imgid newapp.jfrog.io/docker-local/$imgid
-          docker push newapp.jfrog.io/docker-local/$imgid
+          echo ${imgid}
+          docker tag ${imgid} newapp.jfrog.io/docker-local/${imgid}
+          docker push newapp.jfrog.io/docker-local/${imgid}
       
     
