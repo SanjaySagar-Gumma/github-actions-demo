@@ -60,9 +60,9 @@ jobs:
         run: |
          # sudo apt-get install gawk
           docker images
-          var1 = "docker images | grep -i "my-image-name" | awk '{print $3}'"
+          #var1 = "docker images | grep -i "my-image-name" | awk '{print $3}'"
           echo "hello"
-          docker tag $var1 newapp.jfrog.io/docker-local/$var1
-          docker push newapp.jfrog.io/docker-local/$var1
+          docker tag "docker images | grep -i "my-image-name" | awk '{print $3}'" newapp.jfrog.io/docker-local/"docker images | grep -i "my-image-name" | awk '{print $3}'"
+          docker push newapp.jfrog.io/docker-local/"docker images | grep -i "my-image-name" | awk '{print $3}'"
       
     
