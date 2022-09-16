@@ -8,4 +8,7 @@ jobs:
      uses: sigmarpanda/github-actions-demo/.github/workflows/DockerImagebuild-push.yml@master
      secrets:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}  
-        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}  
+        DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        JFROG_USER: ${{secrets.JFROG_USER}}
+        JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
+        
