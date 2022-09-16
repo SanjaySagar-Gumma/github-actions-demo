@@ -51,7 +51,7 @@ jobs:
 #           imgid: ${{docker images | grep -i "my-image-name" | awk '{print $3}'}}
       - name: docker push
         env:
-          imgid: docker images | grep -i "my-image-name" | awk '{print $3}'
+          imgid: ${{docker images | grep -i "my-image-name" | awk '{print $3}'}}
         run: |        
           docker images        
           echo "hello"
