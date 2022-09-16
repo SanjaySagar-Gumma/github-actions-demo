@@ -49,7 +49,7 @@ jobs:
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
       - name: set env
-        run: $test = $(docker images | grep -i "my-image-name" | awk '{print $3}') 
+        run: $test == $(docker images | grep -i "my-image-name" | awk '{print $3}') 
       - name: docker
         run: |        
           docker images        
