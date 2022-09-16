@@ -60,7 +60,7 @@ jobs:
         run: |
          # sudo apt-get install gawk
          # docker images
-          docker images | awk '{print $3}'
+          (docker images | awk '{print $3}').iloc[0]
          # echo $var1
           echo "hello"
           docker tag $var1[0]  newapp.jfrog.io/docker-local/$var1[0] 
