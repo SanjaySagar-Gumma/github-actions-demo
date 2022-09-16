@@ -46,7 +46,7 @@ jobs:
         name: Build and push 🐳
         id: docker_build
         run: |
-          docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+          docker build --file Dockerfile --tag my-image-name:$(date +%s)
 
 #       - name: set env
 #         env: |
