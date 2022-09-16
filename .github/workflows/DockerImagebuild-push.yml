@@ -10,9 +10,9 @@ on:
         required: true
       JFROG_PASSWORD:
         required: true
-env:
-  JFROG_URL: https://newapp.jfrog.io/artifactory/
-  JFROG_ARTIFACT_DIR: new-app-docker-remote-cache
+# env:
+#   JFROG_URL: https://newapp.jfrog.io/artifactory/
+#   JFROG_ARTIFACT_DIR: new-app-docker-remote-cache
  
 
 jobs:
