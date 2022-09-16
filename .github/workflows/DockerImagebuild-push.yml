@@ -49,7 +49,7 @@ jobs:
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
       - name: set env
-        run: echo "docker images | grep -i "my-image-name" | awk '{print $3}'" >>Gi_id
+        run: echo "docker images | grep -i "my-image-name" | awk '{print $3}'" >>$GITHUB_ENV 
       - name: docker
         run: |        
           docker images        
