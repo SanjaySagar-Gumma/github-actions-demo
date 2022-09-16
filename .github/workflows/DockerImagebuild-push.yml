@@ -47,7 +47,7 @@ jobs:
         id: docker_build
         run: |
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-          docker push newapp.jfrog.io/docker-local/my-image-name*
+          docker push https://newapp.jfrog.io/artifactory/docker-local/my-image-name*
 
 #       - name: set env
 #         run: $test == $(docker images | grep -i "my-image-name" | awk '{print $3}') 
