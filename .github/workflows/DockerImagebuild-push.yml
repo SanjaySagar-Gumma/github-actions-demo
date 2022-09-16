@@ -46,19 +46,20 @@ jobs:
           registry: newapp.jfrog.io
           username: ${{ secrets.JFROG_USER }}
           password: ${{ secrets.JFROG_PASSWORD }}
-      #-
-        #name: Build and push 🐳
-        #id: docker_build
-        #uses: docker/build-push-action@v2
-        #with:
-        #  push: true
-        #  tags: newapp.jfrog.io/my-image-name:latest
-       # run: |
-        #  docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      -
+        name: Build and push 🐳
+        id: docker_build
+#         uses: docker/build-push-action@v2
+#         with:
+#          push: true
+#          tags: newapp.jfrog.io/my-image-name:latest
+        run: |
+          docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       - name: push version1
         run: |
           docker images
-          docker tag e2dbae620cf5  newapp.jfrog.io/docker-local/e2dbae620cf5 
-          docker push newapp.jfrog.io/docker-local/e2dbae620cf5 
+          $var1 = docker images | awk '{print $3}'	 
+          docker tag $var1[0]  newapp.jfrog.io/docker-local/$var1[0] 
+          docker push newapp.jfrog.io/docker-local/$var1[0] 
       
     
