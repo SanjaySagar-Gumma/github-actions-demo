@@ -58,7 +58,7 @@ jobs:
       - name: push version1
         run: |
           docker images
-          #docker tag my-image-name  newapp.jfrog.io/docker-local/my-image-name 
-          #docker push newapp.jfrog.io/docker-local/my-image-name 
+          docker tag e2dbae620cf5  newapp.jfrog.io/docker-local/e2dbae620cf5 
+          docker push newapp.jfrog.io/docker-local/e2dbae620cf5 
       
     
