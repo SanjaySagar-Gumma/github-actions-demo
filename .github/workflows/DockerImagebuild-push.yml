@@ -29,6 +29,8 @@ jobs:
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
           pwd
           ls
+          docker images
+          cat /var/lib/docker
         
       - uses: jfrog/setup-jfrog-cli@v1.2.0
 
