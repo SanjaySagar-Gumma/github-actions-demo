@@ -55,7 +55,7 @@ jobs:
         #  tags: newapp.jfrog.io/my-image-name:latest
         run: |
           docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      - name: push
+      - name: push version
         run: |
           docker images
           #docker tag my-image-name  newapp.jfrog.io/docker-local/my-image-name 
