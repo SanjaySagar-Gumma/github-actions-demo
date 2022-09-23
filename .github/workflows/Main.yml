@@ -1,4 +1,4 @@
-name: Reusable Template
+name: Reusable Template pipeline
 
 on:
   push:
